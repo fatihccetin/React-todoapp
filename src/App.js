@@ -1,13 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {useTodoLayerValue} from "./context/TodoContext";
+import TodoList from './components/TodoList';
 
 const App = () => {
   const [{ todos }, dispatch] = useTodoLayerValue();
-  
-  console.log(todos);
+  const [content , setContent] = useState('');
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();  // Sayfanın yenilenmesini engelliyoruz.
+  };
   return (
-    <div>
-      App
+    <div className="container">
+      <form onSubmit={handleSubmit} className="todo-form">
+        <input type="text" className="todo-input" onChange={(event) => setContent(event.target.value)} 
+        value={content} />
+        <button className="todo-button">
+          Ekle
+        </button>
+
+      </form>
+      {/* {Todo listesii} */}
+
+      {/* <TodoList todos ={todos}/> */}
     </div>
   )
 }
