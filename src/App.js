@@ -8,7 +8,25 @@ const App = () => {
 
   const handleSubmit = (event) =>{
     event.preventDefault();  // Sayfanın yenilenmesini engelliyoruz.
+
+    if(!content)return;
+
+    const newTodo={
+      id: Math.floor(Math.random()*428374324),
+      content,
+      isComplate:false
+    };
+
+    dispatch({
+      type: "ADD_TODO",
+      payload:newTodo,
+    });
+
+    setContent(' ')
+
   };
+
+  
   return (
     <div className="container">
       <form onSubmit={handleSubmit} className="todo-form">
@@ -21,7 +39,7 @@ const App = () => {
       </form>
       {/* {Todo listesii} */}
 
-      {/* <TodoList todos ={todos}/> */}
+     <TodoList todos ={todos}/> 
     </div>
   )
 }

@@ -1,11 +1,6 @@
 export const initialState = {
     todos : 
-    [
-        {
-            id:0,
-            content:'Ben ilk todo',
-        },
-    ],
+    [],
 };
 
 
@@ -16,8 +11,10 @@ const reducer = (state ,action) => {
 
     switch(action.type){
         case "ADD_TODO":
+            
         return {
             ...state,
+            todos: [action.payload, ...state.todos],//eklenen statelei tut ve arkasına her serefınde yaz 
         };
 
         default:
