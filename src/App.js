@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {useTodoLayerValue} from "./context/TodoContext";
 import TodoList from './components/TodoList';
+import './App.css';
 
 const App = () => {
   const [{ todos }, dispatch] = useTodoLayerValue();
