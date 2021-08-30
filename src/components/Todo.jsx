@@ -6,8 +6,11 @@ const Todo = ({todo}) => {
     const[{ }, dispatch] = useTodoLayerValue();
 
     const removeTodo = todoId =>{
-
-    } 
+            dispatch({
+                type: "REMOVE_TODO",
+                payload: todoId,
+            });
+    } ;
     return (
         <div className="todo-row">
             <div>
@@ -15,7 +18,7 @@ const Todo = ({todo}) => {
             </div>
 
             <div className="todo-icons">
-                      <GrFormClose className="todo-icon" onClick={removeTodo(todo.id)} />
+                      <GrFormClose className="todo-icon" onClick={() => removeTodo(todo.id)} />
                       <GrFormEdit className="todo-icon"/>
 
             </div>            
